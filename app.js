@@ -14,6 +14,7 @@ app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const authRoutes = require('./routes/auth');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -29,12 +30,13 @@ app.use((req, res, next) => {
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
+app.use(authRoutes);
 
 app.use(errorController.get404);
 
 mongoose
   .connect(
-    //'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop?retryWrites=true'
+        //'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop?retryWrites=true'
     'mongodb+srv://lalitnayyar:Sharda180673@cluster0.ow0zp.mongodb.net/shop?retryWrites=true&w=majority',
     {useNewUrlParser: true , useUnifiedTopology: true}
   )
@@ -51,7 +53,7 @@ mongoose
         user.save();
       }
     });
-    app.listen(3000);
+    app.listen(3003);
   })
   .catch(err => {
     console.log(err);
