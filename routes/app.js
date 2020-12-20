@@ -10,7 +10,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'mongodb+srv://lalitnayyar:Sharda180673@cluster0.ow0zp.mongodb.net/shop';
+  'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop';
 
 const app = express();
 const store = new MongoDBStore({
@@ -37,7 +37,7 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  User.findById('5f1432bb67cc8c2a331d7b69')
+  User.findById('5bab316ce0a7c75f783cb8a8')
     .then(user => {
       req.user = user;
       next();
@@ -66,7 +66,7 @@ mongoose
         user.save();
       }
     });
-    app.listen(3007);
+    app.listen(3000);
   })
   .catch(err => {
     console.log(err);
